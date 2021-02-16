@@ -1,0 +1,26 @@
+{
+  "name": "simplechatapp",
+  "version": "1.0.0",
+  "description": "Simple chat app built with node.js and socket.io",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "private",
+    "url": ""
+  },
+  "author": "Abhishek pandey",
+  "license": "ISC",
+  "homepage": "",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "body-parser": "^1.19.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "mongoose": "^5.11.16",
+    "nodemon": "^1.14.3",
+    "socket.io": "^2.0.4"
+  }
+}
