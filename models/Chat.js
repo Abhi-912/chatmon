@@ -9,9 +9,6 @@ const chatSchema = new Schema(
     username: {
       type: String
     }
-  },
-  {
-    timestamps: true
   }
 );
 

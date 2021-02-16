@@ -1,15 +1,13 @@
 {
-  "name": "simplechatapp",
+  "name": "chatmon",
   "version": "1.0.0",
-  "description": "Simple chat app built with node.js and socket.io",
+  "description": "Simple chat app built with node.js and socket.io and mongodb",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon app"
   },
   "repository": {
-    "type": "private",
-    "url": ""
+    "type": "private"
   },
   "author": "Abhishek pandey",
   "license": "ISC",
