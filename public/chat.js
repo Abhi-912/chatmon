@@ -10,10 +10,13 @@ $(function(){
 	var send_username = $("#send_username")
 	var chatroom = $("#chatroom")
 	var feedback = $("#feedback")
-
+	
+    var myvar;
 	//Emit message
 	send_message.click(function(){
+		
 		socket.emit('new_message', {message : message.val()})
+		
 	})
 
 	//Listen on new_message
@@ -22,10 +25,6 @@ $(function(){
 		feedback.html('');
 		message.val('');
 		chatroom.append("<p class='message'>" + data.username + ": " + data.message + "</p>")
-		window.setInterval(function() {
-			var elem = document.getElementById('chatroom');
-			elem.scrollTop = elem.scrollHeight;
-		  }, 10);
 	})
 
 	socket.on("output-messages", (data) => {
@@ -34,7 +33,6 @@ $(function(){
 			data.forEach(message =>{
 				if(message.message)
 				chatroom.append("<p class='message'>" + message.username + ": " + message.message + "</p>");	
-
 			});	
 		}
 	})
@@ -47,6 +45,10 @@ $(function(){
 	//Emit typing
 	message.bind("keypress", () => {
 		socket.emit('typing')
+		myvar = window.setInterval(function() {
+			var elem = document.getElementById('chatroom');
+			elem.scrollTop = elem.scrollHeight;
+		  }, 10);
 	})
 
 	//Listen on typing
