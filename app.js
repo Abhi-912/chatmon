@@ -1,5 +1,8 @@
+require('dotenv').config()
 const express = require('express');
+const mongoose = require('mongoose');
 const app = express();
+const Chat = require("./models/Chat");
 
 
 //set the template engine ejs
@@ -7,6 +10,21 @@ app.set('view engine', 'ejs')
 
 //middlewares
 app.use(express.static('public'))
+
+
+//Database connection
+
+const MONGO_URI = process.env.MONGO_URI;
+
+const connect = mongoose.connect(MONGO_URI,{ useNewUrlParser: true,useUnifiedTopology: true });
+connect.then(
+    (db) => {
+      console.log("Database Connected Successfully");
+    },
+    (err) => {
+      console.log("Error occur while connecting ", err);
+    }
+  );
 
 
 //routes
@@ -21,9 +39,6 @@ server = app.listen(PORT);
 //socket.io instantiation
 const io = require("socket.io")(server)
 
-//Database connection
-const Chat = require("./models/Chat");
-const connect = require("./dbconnect");
 
 //listen on every connection
 io.on('connection', (socket) => {
