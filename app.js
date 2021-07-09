@@ -14,9 +14,9 @@ app.use(express.static('public'))
 
 //Database connection
 
-const MONGO_URI = process.env.MONGO_URI;
+const MONGODB_URI = process.env.MONGO_URI;
 
-const connect = mongoose.connect(MONGO_URI,{ useNewUrlParser: true,useUnifiedTopology: true });
+const connect = mongoose.connect(MONGODB_URI,{ useNewUrlParser: true,useUnifiedTopology: true });
 connect.then(
     (db) => {
       console.log("Database Connected Successfully");
